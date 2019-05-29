@@ -1,2 +1,3 @@
 # Study of Nearly Color Param
-- 近似色だと判断できるRGBの差分の範囲を探る
+- 類似色だと判断できるRGBの範囲の検証
+	- [view](https://szgk.github.io/Study-for-Nearly-Color-Paramater/)

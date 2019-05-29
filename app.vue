@@ -2,7 +2,7 @@
 	<div>
 		<header>
 			<h1>Study of Nearly Color Param</h1>
-			<p class="about">近似色だと判断できるRGBの差分の範囲を探る</p>
+			<p class="about">類似色だと判断できるRGBの範囲の検証</p>
 		</header>
 		<section class="rgb_area">
 			<h2>Base color</h2>
@@ -40,12 +40,21 @@
 		</section>
 		<section class="sample">
 			<div
-				class="base-color"
+				class="color_bar"
+				:style="{background: maxDiffColor}"
+			/>
+			<div
+				class="color_bar"
 				:style="{background: `rgb(${values[0]},${values[1]},${values[2]})`}"
 			>base color</div>
+			<div
+				class="color_bar"
+				:style="{background: minDiffColor}"
+			/>
 			<h3>Randum Nearly Colors</h3>
 			<ul>
 				<li
+					class="color_bar"
 					v-for="(none, i) in new Array(parseInt(boxes))"
 					v-bind:key="i + Math.random()"
 					:style="{background: randomRgbs[i]}"
@@ -71,10 +80,25 @@ export default {
 			return Math.floor(Math.random() * max)
 		},
 	},
-	created() {
-		console.log(this.randomRgbs)
-	},
 	computed: {
+		maxDiffColor() {
+			return `rgb(${
+				parseInt(this.values[0]) + parseInt(this.diff)
+			},${
+				parseInt(this.values[1]) + parseInt(this.diff)
+			},${
+				parseInt(this.values[2]) + parseInt(this.diff)
+			})`
+		},
+		minDiffColor() {
+			return `rgb(${
+				parseInt(this.values[0]) - parseInt(this.diff)
+			},${
+				parseInt(this.values[1]) - parseInt(this.diff)
+			},${
+				parseInt(this.values[2]) - parseInt(this.diff)
+			})`
+		},
 		randomRgbs() {
 			const rgbs = []
 			for(let i = 0; i < this.boxes; i++) {
@@ -129,7 +153,7 @@ h2
 h3
 	font-size 16px
 
-.base-color
+.color_bar
 	height 30px
 	line-height 30px
 	width 100%

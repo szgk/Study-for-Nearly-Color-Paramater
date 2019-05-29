@@ -6,12 +6,12 @@ module.exports = {
 	mode: process.env.NODE_ENV || 'development',
 	entry: './main.js',
 	output: {
-		path: path.resolve(__dirname, './public'),
+		path: path.resolve(__dirname, './'),
 		filename: 'script.js',
 	},
   devtool: isDev ? "source-map" : false,
   devServer: {
-		contentBase: path.resolve(__dirname, './public'),
+		contentBase: path.resolve(__dirname, './'),
 		hot: true,
     compress: true,
 		port: 9001,
