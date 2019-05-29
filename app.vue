@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<header>
-			<h1>Study of Nearly Color Param</h1>
+			<h1>Study for Nearly Color Param</h1>
 			<p class="about">類似色だと判断できるRGBの範囲の検証</p>
 		</header>
 		<section class="rgb_area">
